@@ -18,6 +18,14 @@ func Error(err error, data ...interface{}) {
 	log.Println(p...)
 }
 
+func CError(err error, data ...interface{}) bool {
+	if err != nil {
+		Error(err, data...)
+		return true
+	}
+	return false
+}
+
 func ValidationError(v interface{}, err error) {
 	fn := GetTrace()
 	log.Println("*VALIDATION ON: ", fn, " - ", err, " | ", v)
