@@ -20,7 +20,7 @@ func Error(err error, data ...interface{}) {
 
 func CError(err error, data ...interface{}) bool {
 	if err != nil {
-		fn := GetTrace(1)
+		fn := GetTrace(0)
 		p := append([]interface{}{"********ERROR ON: ", fn, " - ", err, " | "}, data...)
 		log.Println(p...)
 	}
